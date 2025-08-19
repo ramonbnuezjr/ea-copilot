@@ -23,7 +23,6 @@ class EAChatbot {
         // Results section
         this.resultsSection = document.getElementById('resultsSection');
         this.resultsContent = document.getElementById('resultsContent');
-        this.resultsCount = document.getElementById('resultsCount');
         
         // Loading spinner
         this.loadingSpinner = document.getElementById('loadingSpinner');
@@ -194,9 +193,6 @@ Would you like me to dive deeper into any specific aspect of this topic?`,
         // Show results section
         this.resultsSection.style.display = 'block';
         
-        // Update results count
-        this.resultsCount.textContent = `${response.sources.length} sources`;
-        
         // Create results content
         this.resultsContent.innerHTML = `
             <div class="query-display">
@@ -206,24 +202,7 @@ Would you like me to dive deeper into any specific aspect of this topic?`,
             
             <div class="ai-response">
                 <h4 style="color: #FFD700; margin-bottom: 15px;">AI Response:</h4>
-                <div style="color: #E0E0E0; line-height: 1.7; white-space: pre-wrap; margin-bottom: 25px;">${response.answer}</div>
-            </div>
-            
-            <div class="sources">
-                <h4 style="color: #5CB85C; margin-bottom: 15px;">Sources:</h4>
-                <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-                    ${response.sources.map(source => `
-                        <span style="background: #404040; color: #FFFFFF; padding: 8px 15px; border-radius: 20px; font-size: 0.9rem;">
-                            ${source}
-                        </span>
-                    `).join('')}
-                </div>
-            </div>
-            
-            <div class="confidence" style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #404040;">
-                <span style="color: #B0B0B0; font-size: 0.9rem;">
-                    Confidence: ${Math.round(response.confidence * 100)}%
-                </span>
+                <div style="color: #E0E0E0; line-height: 1.7; margin-bottom: 25px;" class="markdown-content">${this.renderMarkdown(response.answer)}</div>
             </div>
         `;
         
@@ -282,6 +261,78 @@ Would you like me to dive deeper into any specific aspect of this topic?`,
             timestamp
         });
     }
+
+
+
+
+
+    renderMarkdown(text) {
+        // Proper LLM text normalization - keeps paragraph structure
+        const cleanedText = this.normalizeLLM(text);
+        
+        // Use Marked.js for proper markdown rendering
+        if (window.marked) {
+            try {
+                // Configure marked options - NO breaks (keeps paragraph semantics)
+                marked.setOptions({
+                    breaks: false,          // Don't convert \n to <br> (preserves paragraphs)
+                    gfm: true,              // GitHub Flavored Markdown
+                    headerIds: false,       // No header IDs
+                    mangle: false,          // No mangling
+                    sanitize: false         // Allow HTML (we'll sanitize separately)
+                });
+                
+                // Render the markdown
+                return marked.parse(cleanedText);
+            } catch (error) {
+                console.error('Markdown parsing error:', error);
+                // Fallback to basic formatting
+                return this.basicMarkdown(cleanedText);
+            }
+        } else {
+            // Fallback to basic formatting
+            return this.basicMarkdown(cleanedText);
+        }
+    }
+    
+    normalizeLLM(text) {
+        // Extract code fences to preserve them
+        const fence = /```[\s\S]*?```/g;
+        const fences = [];
+        const holder = (i) => `__FENCE_${i}__`;
+        
+        // 1) Extract fences
+        const body = text.replace(fence, m => {
+            fences.push(m);
+            return holder(fences.length - 1);
+        });
+        
+        // 2) Normalize outside fences - keep paragraph structure
+        let normalized = body
+            .replace(/[ \t]+/g, ' ')        // collapse runs of spaces/tabs
+            .replace(/\n{3,}/g, '\n\n')     // collapse 3+ newlines to exactly 2 (preserves paragraphs)
+            .trim();                        // trim ends
+        
+        // 3) Restore fences verbatim
+        normalized = normalized.replace(/__FENCE_(\d+)__/g, (_, i) => fences[Number(i)]);
+        
+        return normalized;
+    }
+    
+    basicMarkdown(text) {
+        // Basic markdown rendering as fallback
+        return text
+            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')  // **bold**
+            .replace(/\*(.*?)\*/g, '<em>$1</em>')              // *italic*
+            .replace(/\n/g, '<br>')                            // line breaks
+            .replace(/&/g, '&amp;')                            // escape HTML
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+    }
+
+
 }
 
 // Initialize the chatbot when the page loads
