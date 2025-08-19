@@ -3,330 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EA Chatbot - Enterprise Architecture Assistant</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>EA Copilot - Enterprise Architecture Assistant</title>
+    <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        .chat-container {
-            height: calc(100vh - 200px);
-        }
-        .message-bubble {
-            max-width: 80%;
-            word-wrap: break-word;
-        }
-        .typing-indicator {
-            display: none;
-        }
-        .typing-indicator.show {
-            display: block;
-        }
-    </style>
 </head>
-<body class="bg-gray-50">
-    <div class="min-h-screen">
+<body>
+    <div class="container">
         <!-- Header -->
-        <header class="bg-blue-600 text-white shadow-lg">
-            <div class="container mx-auto px-4 py-6">
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center space-x-3">
-                        <i class="fas fa-robot text-2xl"></i>
-                        <div>
-                            <h1 class="text-2xl font-bold">EA Chatbot</h1>
-                            <p class="text-blue-100">Enterprise Architecture Assistant</p>
-                        </div>
-                    </div>
-                    <div class="text-right">
-                        <div class="text-sm text-blue-100">Powered by</div>
-                        <div class="font-semibold">Google Gemini + RAG</div>
-                    </div>
-                </div>
-            </div>
+        <header class="header">
+            <h1 class="main-title">EA</h1>
+            <p class="subtitle">Enterprise Architecture Copilot</p>
         </header>
 
-        <!-- Main Content -->
-        <main class="container mx-auto px-4 py-6">
-            <!-- Quick Actions -->
-            <div class="mb-6">
-                <h2 class="text-lg font-semibold text-gray-700 mb-3">Quick Questions</h2>
-                <div class="flex flex-wrap gap-2">
-                    <button onclick="askQuestion('What applications support Customer Onboarding?')" 
-                            class="bg-blue-100 hover:bg-blue-200 text-blue-800 px-3 py-2 rounded-lg text-sm transition-colors">
-                        <i class="fas fa-apps mr-2"></i>Capability Mapping
-                    </button>
-                    <button onclick="askQuestion('Is Kubernetes a standard technology?')" 
-                            class="bg-green-100 hover:bg-green-200 text-green-800 px-3 py-2 rounded-lg text-sm transition-colors">
-                        <i class="fas fa-check-circle mr-2"></i>Tech Standards
-                    </button>
-                    <button onclick="askQuestion('Which vendors are up for renewal this quarter?')" 
-                            class="bg-purple-100 hover:bg-purple-200 text-purple-800 px-3 py-2 rounded-lg text-sm transition-colors">
-                        <i class="fas fa-calendar mr-2"></i>Contract Renewals
-                    </button>
-                    <button onclick="askQuestion('What are our high-priority tech debt items?')" 
-                            class="bg-red-100 hover:bg-red-200 text-red-800 px-3 py-2 rounded-lg text-sm transition-colors">
-                        <i class="fas fa-exclamation-triangle mr-2"></i>Tech Debt
-                    </button>
-                </div>
+        <!-- Search Section -->
+        <div class="search-section">
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    class="search-input" 
+                    placeholder="Ask about enterprise architecture, technical debt, or business capabilities..."
+                >
+                <button id="searchButton" class="search-button">
+                    <i class="fas fa-arrow-right"></i>
+                </button>
             </div>
+        </div>
 
-            <!-- Chat Interface -->
-            <div class="bg-white rounded-lg shadow-lg border">
-                <!-- Chat Header -->
-                <div class="bg-gray-50 px-6 py-4 border-b rounded-t-lg">
-                    <div class="flex items-center justify-between">
-                        <h3 class="text-lg font-semibold text-gray-700">
-                            <i class="fas fa-comments mr-2"></i>Chat with EA Assistant
-                        </h3>
-                        <div class="flex items-center space-x-2">
-                            <div class="w-2 h-2 bg-green-500 rounded-full"></div>
-                            <span class="text-sm text-gray-500">Online</span>
-                        </div>
-                    </div>
+        <!-- Quick Action Cards -->
+        <div class="cards-section">
+            <div class="card action-card" data-query="What are the key principles of enterprise architecture?">
+                <div class="card-icon">
+                    <i class="fas fa-building"></i>
                 </div>
-
-                <!-- Chat Messages -->
-                <div id="chat-messages" class="chat-container overflow-y-auto p-6 space-y-4">
-                    <!-- Welcome Message -->
-                    <div class="flex justify-start">
-                        <div class="message-bubble bg-blue-100 text-blue-800 p-4 rounded-lg">
-                            <div class="flex items-start space-x-3">
-                                <i class="fas fa-robot text-xl text-blue-600 mt-1"></i>
-                                <div>
-                                    <div class="font-semibold mb-2">EA Assistant</div>
-                                    <p>Hello! I'm your Enterprise Architecture assistant. I can help you with:</p>
-                                    <ul class="list-disc list-inside mt-2 space-y-1 text-sm">
-                                        <li>Business capability mapping and application inventory</li>
-                                        <li>Technology standards and architecture decisions</li>
-                                        <li>Tech debt analysis and risk assessment</li>
-                                        <li>Cost optimization and vendor management</li>
-                                        <li>Security compliance and data governance</li>
-                                    </ul>
-                                    <p class="mt-2">Ask me anything about your enterprise architecture!</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Typing Indicator -->
-                <div id="typing-indicator" class="typing-indicator px-6 pb-4">
-                    <div class="flex items-center space-x-2 text-gray-500">
-                        <i class="fas fa-robot"></i>
-                        <span>EA Assistant is typing...</span>
-                        <div class="flex space-x-1">
-                            <div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
-                            <div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
-                            <div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Chat Input -->
-                <div class="border-t p-6">
-                    <form id="chat-form" class="flex space-x-4">
-                        <div class="flex-1">
-                            <input type="text" 
-                                   id="message-input" 
-                                   placeholder="Ask about your enterprise architecture..." 
-                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                                   required>
-                        </div>
-                        <button type="submit" 
-                                class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors flex items-center space-x-2">
-                            <i class="fas fa-paper-plane"></i>
-                            <span>Send</span>
-                        </button>
-                    </form>
-                </div>
+                <h3>EA Principles</h3>
+                <p>Discover the core principles and best practices of enterprise architecture</p>
             </div>
-
-            <!-- Information Panel -->
-            <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-white p-6 rounded-lg shadow border">
-                    <div class="flex items-center space-x-3 mb-4">
-                        <i class="fas fa-database text-blue-600 text-xl"></i>
-                        <h3 class="font-semibold text-gray-700">Data Sources</h3>
-                    </div>
-                    <ul class="text-sm text-gray-600 space-y-2">
-                        <li>• Business Capabilities</li>
-                        <li>• Application Inventory</li>
-                        <li>• Tech Standards</li>
-                        <li>• Integration Catalog</li>
-                        <li>• Tech Debt Register</li>
-                    </ul>
+            
+            <div class="card action-card" data-query="How do I manage technical debt effectively?">
+                <div class="card-icon">
+                    <i class="fas fa-tools"></i>
                 </div>
-
-                <div class="bg-white p-6 rounded-lg shadow border">
-                    <div class="flex items-center space-x-3 mb-4">
-                        <i class="fas fa-shield-alt text-green-600 text-xl"></i>
-                        <h3 class="font-semibold text-gray-700">Security & Compliance</h3>
-                    </div>
-                    <ul class="text-sm text-gray-600 space-y-2">
-                        <li>• ISO 27001 Controls</li>
-                        <li>• SOC 2 Compliance</li>
-                        <li>• GDPR Requirements</li>
-                        <li>• PII Data Protection</li>
-                        <li>• Security Baselines</li>
-                    </ul>
-                </div>
-
-                <div class="bg-white p-6 rounded-lg shadow border">
-                    <div class="flex items-center space-x-3 mb-4">
-                        <i class="fas fa-chart-line text-purple-600 text-xl"></i>
-                        <h3 class="font-semibold text-gray-700">Performance Metrics</h3>
-                    </div>
-                    <ul class="text-sm text-gray-600 space-y-2">
-                        <li>• SLA Health Monitoring</li>
-                        <li>• MTTR Tracking</li>
-                        <li>• Cost Optimization</li>
-                        <li>• Risk Assessment</li>
-                        <li>• Capacity Planning</li>
-                    </ul>
-                </div>
+                <h3>Technical Debt</h3>
+                <p>Learn strategies for identifying, managing, and reducing technical debt</p>
             </div>
-        </main>
+        </div>
+
+        <!-- Chat Interface -->
+        <div class="chat-section" id="chatSection" style="display: none;">
+            <div class="chat-header">
+                <h3>EA Copilot Response</h3>
+                <button class="close-chat" id="closeChat">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="chat-content" id="chatContent">
+                <!-- Chat messages will appear here -->
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div class="results-section" id="resultsSection" style="display: none;">
+            <div class="results-header">
+                <div class="results-title">
+                    <i class="fas fa-lightbulb"></i>
+                    <span>AI-Powered Response</span>
+                </div>
+                <div class="results-count" id="resultsCount"></div>
+            </div>
+            
+            <div class="results-content" id="resultsContent">
+                <!-- Results will appear here -->
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Powered by Google Gemini AI • RAG-powered knowledge base • Built for Enterprise Architecture</p>
+            <p>Real EA guidance powered by comprehensive corpus and mock datasets</p>
+        </footer>
     </div>
 
-    <script>
-        const API_BASE_URL = 'http://localhost:8000';
-        let chatHistory = [];
+    <!-- Loading Spinner -->
+    <div class="loading-spinner" id="loadingSpinner" style="display: none;">
+        <div class="spinner"></div>
+        <p>Analyzing your question...</p>
+    </div>
 
-        // Initialize chat
-        document.addEventListener('DOMContentLoaded', function() {
-            const chatForm = document.getElementById('chat-form');
-            const messageInput = document.getElementById('message-input');
-
-            chatForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const message = messageInput.value.trim();
-                if (message) {
-                    sendMessage(message);
-                    messageInput.value = '';
-                }
-            });
-
-            // Auto-resize chat container
-            const chatMessages = document.getElementById('chat-messages');
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        });
-
-        function askQuestion(question) {
-            document.getElementById('message-input').value = question;
-            sendMessage(question);
-        }
-
-        async function sendMessage(message) {
-            // Add user message to chat
-            addMessage(message, 'user');
-            
-            // Show typing indicator
-            showTypingIndicator();
-            
-            try {
-                const response = await fetch(`${API_BASE_URL}/chat`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        message: message,
-                        user_id: 'default'
-                    })
-                });
-
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-
-                const data = await response.json();
-                
-                // Hide typing indicator
-                hideTypingIndicator();
-                
-                // Add bot response to chat
-                addMessage(data.response, 'bot', data.sources, data.confidence);
-                
-            } catch (error) {
-                console.error('Error:', error);
-                hideTypingIndicator();
-                addMessage('Sorry, I encountered an error. Please try again.', 'bot', [], 0);
-            }
-        }
-
-        function addMessage(message, sender, sources = [], confidence = 1) {
-            const chatMessages = document.getElementById('chat-messages');
-            const messageDiv = document.createElement('div');
-            
-            const isUser = sender === 'user';
-            const bgColor = isUser ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-800';
-            const icon = isUser ? 'fas fa-user' : 'fas fa-robot';
-            const justifyClass = isUser ? 'justify-end' : 'justify-start';
-            
-            let sourcesHtml = '';
-            if (sources && sources.length > 0) {
-                sourcesHtml = `
-                    <div class="mt-3 text-xs">
-                        <div class="font-semibold mb-1">Sources:</div>
-                        ${sources.map(source => `<div class="text-gray-600">• ${source}</div>`).join('')}
-                    </div>
-                `;
-            }
-
-            let confidenceHtml = '';
-            if (confidence < 1) {
-                const confidencePercent = Math.round(confidence * 100);
-                confidenceHtml = `
-                    <div class="mt-2 text-xs">
-                        <span class="text-gray-500">Confidence: ${confidencePercent}%</span>
-                    </div>
-                `;
-            }
-
-            messageDiv.innerHTML = `
-                <div class="flex ${justifyClass}">
-                    <div class="message-bubble ${bgColor} p-4 rounded-lg">
-                        <div class="flex items-start space-x-3">
-                            <i class="${icon} text-xl ${isUser ? 'text-white' : 'text-gray-600'} mt-1"></i>
-                            <div class="flex-1">
-                                <div class="font-semibold mb-2">${isUser ? 'You' : 'EA Assistant'}</div>
-                                <div class="whitespace-pre-wrap">${message}</div>
-                                ${sourcesHtml}
-                                ${confidenceHtml}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `;
-            
-            chatMessages.appendChild(messageDiv);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-            
-            // Store in chat history
-            chatHistory.push({
-                sender: sender,
-                message: message,
-                timestamp: new Date().toISOString(),
-                sources: sources,
-                confidence: confidence
-            });
-        }
-
-        function showTypingIndicator() {
-            document.getElementById('typing-indicator').classList.add('show');
-        }
-
-        function hideTypingIndicator() {
-            document.getElementById('typing-indicator').classList.remove('show');
-        }
-
-        // Add some sample interactions for demo purposes
-        function addSampleInteraction() {
-            setTimeout(() => {
-                askQuestion('What are our core business capabilities?');
-            }, 2000);
-        }
-
-        // Uncomment to add sample interaction
-        // addSampleInteraction();
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
