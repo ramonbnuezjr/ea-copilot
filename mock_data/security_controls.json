@@ -1,0 +1,37 @@
+[
+  {
+    "control": "ISO 27001",
+    "status": "Compliant",
+    "last_audit": "2024-12-01",
+    "next_audit": "2025-12-01",
+    "coverage": "95%"
+  },
+  {
+    "control": "SOC 2 Type II",
+    "status": "Compliant",
+    "last_audit": "2024-06-01",
+    "next_audit": "2025-06-01",
+    "coverage": "90%"
+  },
+  {
+    "control": "GDPR Compliance",
+    "status": "Compliant",
+    "last_audit": "2024-09-01",
+    "next_audit": "2025-09-01",
+    "coverage": "100%"
+  },
+  {
+    "control": "PII Data Protection",
+    "status": "Partial",
+    "last_audit": "2024-11-01",
+    "next_audit": "2025-05-01",
+    "coverage": "75%"
+  },
+  {
+    "control": "API Security",
+    "status": "Compliant",
+    "last_audit": "2024-10-01",
+    "next_audit": "2025-04-01",
+    "coverage": "100%"
+  }
+]

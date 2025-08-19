@@ -1,0 +1,37 @@
+[
+  {
+    "service": "Customer Portal",
+    "sla_target": "99.9%",
+    "current_uptime": "99.95%",
+    "mttr": "15min",
+    "status": "Healthy"
+  },
+  {
+    "service": "Order Processing",
+    "sla_target": "99.5%",
+    "current_uptime": "99.2%",
+    "mttr": "45min",
+    "status": "Warning"
+  },
+  {
+    "service": "Payment Gateway",
+    "sla_target": "99.99%",
+    "current_uptime": "99.98%",
+    "mttr": "5min",
+    "status": "Healthy"
+  },
+  {
+    "service": "HR System",
+    "sla_target": "99.0%",
+    "current_uptime": "98.8%",
+    "mttr": "2hr",
+    "status": "Warning"
+  },
+  {
+    "service": "Analytics Platform",
+    "sla_target": "99.0%",
+    "current_uptime": "99.5%",
+    "mttr": "1hr",
+    "status": "Healthy"
+  }
+]

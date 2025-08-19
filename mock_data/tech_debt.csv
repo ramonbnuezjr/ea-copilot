@@ -1,0 +1,6 @@
+id,description,severity,impact,effort,priority
+TD001,Legacy Order System,High,Customer Experience,Large,P1
+TD002,Outdated AngularJS Components,Medium,Developer Productivity,Medium,P2
+TD003,Manual Data Reconciliation,Low,Operational Efficiency,Small,P3
+TD004,SOAP API Dependencies,High,Security,Large,P1
+TD005,Unused Database Indexes,Low,Performance,Small,P3

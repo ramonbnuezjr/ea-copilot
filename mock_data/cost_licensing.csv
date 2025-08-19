@@ -1,0 +1,6 @@
+vendor,product,annual_cost,renewal_date,status
+Salesforce,CRM Platform,60000,2025-12-31,Active
+Oracle,NetSuite ERP,96000,2025-06-30,Active
+Workday,HCM Platform,36000,2025-09-30,Active
+Atlassian,Jira + Confluence,18000,2025-03-31,Active
+Legacy Vendor,Order System,12000,2025-02-28,Deprecated

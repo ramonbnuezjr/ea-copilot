@@ -1,0 +1,37 @@
+[
+  {
+    "domain": "Customer Data",
+    "classification": "PII",
+    "retention_policy": "7 years",
+    "data_owner": "Sales Operations",
+    "compliance": "GDPR"
+  },
+  {
+    "domain": "Financial Data",
+    "classification": "Confidential",
+    "retention_policy": "10 years",
+    "data_owner": "Finance",
+    "compliance": "SOX"
+  },
+  {
+    "domain": "HR Data",
+    "classification": "PII",
+    "retention_policy": "7 years",
+    "data_owner": "HR",
+    "compliance": "GDPR"
+  },
+  {
+    "domain": "Product Data",
+    "classification": "Internal",
+    "retention_policy": "5 years",
+    "data_owner": "Engineering",
+    "compliance": "Internal"
+  },
+  {
+    "domain": "Operational Data",
+    "classification": "Internal",
+    "retention_policy": "3 years",
+    "data_owner": "Operations",
+    "compliance": "Internal"
+  }
+]

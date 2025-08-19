@@ -1,0 +1,56 @@
+[
+  {
+    "id": "APP001",
+    "name": "Salesforce CRM",
+    "type": "SaaS",
+    "capability": "CAP001",
+    "status": "Active",
+    "vendor": "Salesforce",
+    "cost_per_month": 5000
+  },
+  {
+    "id": "APP002",
+    "name": "NetSuite ERP",
+    "type": "SaaS",
+    "capability": "CAP002",
+    "status": "Active",
+    "vendor": "Oracle",
+    "cost_per_month": 8000
+  },
+  {
+    "id": "APP003",
+    "name": "Workday HCM",
+    "type": "SaaS",
+    "capability": "CAP004",
+    "status": "Active",
+    "vendor": "Workday",
+    "cost_per_month": 3000
+  },
+  {
+    "id": "APP004",
+    "name": "Tableau Analytics",
+    "type": "SaaS",
+    "capability": "CAP008",
+    "status": "Active",
+    "vendor": "Salesforce",
+    "cost_per_month": 2000
+  },
+  {
+    "id": "APP005",
+    "name": "Legacy Order System",
+    "type": "On-Premise",
+    "capability": "CAP002",
+    "status": "Retire",
+    "vendor": "Internal",
+    "cost_per_month": 1000
+  },
+  {
+    "id": "APP006",
+    "name": "Jira",
+    "type": "SaaS",
+    "capability": "CAP007",
+    "status": "Active",
+    "vendor": "Atlassian",
+    "cost_per_month": 1500
+  }
+]

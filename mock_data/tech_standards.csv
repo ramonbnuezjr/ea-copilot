@@ -1,0 +1,11 @@
+technology,category,status,rationale
+Kubernetes,Container Orchestration,Standard,Industry standard for container management
+Docker,Containerization,Standard,De facto container standard
+React,Frontend Framework,Standard,"Modern, widely adopted framework"
+AngularJS,Frontend Framework,Retire,"End of life, security concerns"
+MongoDB,Database,Tolerate,"Use case specific, not general purpose"
+PostgreSQL,Database,Standard,Enterprise-grade relational database
+Apache Kafka,Message Queue,Tolerate,Complex but powerful for specific use cases
+Redis,Cache,Standard,Industry standard caching solution
+Legacy SOAP APIs,Integration,Retire,"Outdated protocol, security risks"
+GraphQL,API,Tolerate,"Emerging standard, evaluate per use case"

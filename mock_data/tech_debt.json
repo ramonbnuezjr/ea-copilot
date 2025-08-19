@@ -1,0 +1,42 @@
+[
+  {
+    "id": "TD001",
+    "description": "Legacy Order System",
+    "severity": "High",
+    "impact": "Customer Experience",
+    "effort": "Large",
+    "priority": "P1"
+  },
+  {
+    "id": "TD002",
+    "description": "Outdated AngularJS Components",
+    "severity": "Medium",
+    "impact": "Developer Productivity",
+    "effort": "Medium",
+    "priority": "P2"
+  },
+  {
+    "id": "TD003",
+    "description": "Manual Data Reconciliation",
+    "severity": "Low",
+    "impact": "Operational Efficiency",
+    "effort": "Small",
+    "priority": "P3"
+  },
+  {
+    "id": "TD004",
+    "description": "SOAP API Dependencies",
+    "severity": "High",
+    "impact": "Security",
+    "effort": "Large",
+    "priority": "P1"
+  },
+  {
+    "id": "TD005",
+    "description": "Unused Database Indexes",
+    "severity": "Low",
+    "impact": "Performance",
+    "effort": "Small",
+    "priority": "P3"
+  }
+]

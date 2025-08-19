@@ -1,0 +1,7 @@
+id,name,type,capability,status,vendor,cost_per_month
+APP001,Salesforce CRM,SaaS,CAP001,Active,Salesforce,5000
+APP002,NetSuite ERP,SaaS,CAP002,Active,Oracle,8000
+APP003,Workday HCM,SaaS,CAP004,Active,Workday,3000
+APP004,Tableau Analytics,SaaS,CAP008,Active,Salesforce,2000
+APP005,Legacy Order System,On-Premise,CAP002,Retire,Internal,1000
+APP006,Jira,SaaS,CAP007,Active,Atlassian,1500

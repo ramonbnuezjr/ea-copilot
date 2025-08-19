@@ -1,0 +1,6 @@
+vendor,contract_type,start_date,end_date,auto_renewal
+Salesforce,Enterprise,2023-01-01,2025-12-31,True
+Oracle,Enterprise,2023-06-01,2025-06-30,False
+Workday,Enterprise,2023-09-01,2025-09-30,True
+Atlassian,Standard,2023-03-01,2025-03-31,True
+Legacy Vendor,Legacy,2018-01-01,2025-02-28,False

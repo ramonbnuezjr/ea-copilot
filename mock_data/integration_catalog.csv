@@ -1,0 +1,6 @@
+id,name,type,status,frequency,reliability
+INT001,Salesforce to NetSuite,Data Sync,Active,Real-time,99.9%
+INT002,Payment Gateway API,External API,Active,On-demand,99.95%
+INT003,Legacy System Bridge,Data Migration,Deprecated,Batch,95%
+INT004,HR System Integration,Data Sync,Active,Daily,99%
+INT005,Analytics Data Pipeline,ETL,Active,Hourly,98%

@@ -1,0 +1,62 @@
+[
+  {
+    "technology": "Kubernetes",
+    "category": "Container Orchestration",
+    "status": "Standard",
+    "rationale": "Industry standard for container management"
+  },
+  {
+    "technology": "Docker",
+    "category": "Containerization",
+    "status": "Standard",
+    "rationale": "De facto container standard"
+  },
+  {
+    "technology": "React",
+    "category": "Frontend Framework",
+    "status": "Standard",
+    "rationale": "Modern, widely adopted framework"
+  },
+  {
+    "technology": "AngularJS",
+    "category": "Frontend Framework",
+    "status": "Retire",
+    "rationale": "End of life, security concerns"
+  },
+  {
+    "technology": "MongoDB",
+    "category": "Database",
+    "status": "Tolerate",
+    "rationale": "Use case specific, not general purpose"
+  },
+  {
+    "technology": "PostgreSQL",
+    "category": "Database",
+    "status": "Standard",
+    "rationale": "Enterprise-grade relational database"
+  },
+  {
+    "technology": "Apache Kafka",
+    "category": "Message Queue",
+    "status": "Tolerate",
+    "rationale": "Complex but powerful for specific use cases"
+  },
+  {
+    "technology": "Redis",
+    "category": "Cache",
+    "status": "Standard",
+    "rationale": "Industry standard caching solution"
+  },
+  {
+    "technology": "Legacy SOAP APIs",
+    "category": "Integration",
+    "status": "Retire",
+    "rationale": "Outdated protocol, security risks"
+  },
+  {
+    "technology": "GraphQL",
+    "category": "API",
+    "status": "Tolerate",
+    "rationale": "Emerging standard, evaluate per use case"
+  }
+]

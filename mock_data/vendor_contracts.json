@@ -1,0 +1,37 @@
+[
+  {
+    "vendor": "Salesforce",
+    "contract_type": "Enterprise",
+    "start_date": "2023-01-01",
+    "end_date": "2025-12-31",
+    "auto_renewal": true
+  },
+  {
+    "vendor": "Oracle",
+    "contract_type": "Enterprise",
+    "start_date": "2023-06-01",
+    "end_date": "2025-06-30",
+    "auto_renewal": false
+  },
+  {
+    "vendor": "Workday",
+    "contract_type": "Enterprise",
+    "start_date": "2023-09-01",
+    "end_date": "2025-09-30",
+    "auto_renewal": true
+  },
+  {
+    "vendor": "Atlassian",
+    "contract_type": "Standard",
+    "start_date": "2023-03-01",
+    "end_date": "2025-03-31",
+    "auto_renewal": true
+  },
+  {
+    "vendor": "Legacy Vendor",
+    "contract_type": "Legacy",
+    "start_date": "2018-01-01",
+    "end_date": "2025-02-28",
+    "auto_renewal": false
+  }
+]

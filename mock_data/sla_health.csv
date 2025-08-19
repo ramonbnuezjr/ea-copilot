@@ -1,0 +1,6 @@
+service,sla_target,current_uptime,mttr,status
+Customer Portal,99.9%,99.95%,15min,Healthy
+Order Processing,99.5%,99.2%,45min,Warning
+Payment Gateway,99.99%,99.98%,5min,Healthy
+HR System,99.0%,98.8%,2hr,Warning
+Analytics Platform,99.0%,99.5%,1hr,Healthy

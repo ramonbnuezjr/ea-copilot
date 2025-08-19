@@ -1,0 +1,5 @@
+id,theme,priority,timeline,budget,status
+ROAD001,Digital Transformation,P1,Q2 2025,500000,Planning
+ROAD002,Legacy Modernization,P1,Q3 2025,300000,Planning
+ROAD003,Data Platform Enhancement,P2,Q4 2025,200000,Research
+ROAD004,Security Hardening,P1,Q1 2025,150000,In Progress

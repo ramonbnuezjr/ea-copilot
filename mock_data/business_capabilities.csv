@@ -1,0 +1,9 @@
+id,name,level,owner,maturity
+CAP001,Customer Onboarding,Core,Sales Operations,Optimizing
+CAP002,Order Management,Core,Operations,Defined
+CAP003,Financial Reporting,Core,Finance,Optimizing
+CAP004,HR Management,Supporting,HR,Defined
+CAP005,Supply Chain,Core,Operations,Managing
+CAP006,Customer Service,Core,Customer Success,Defined
+CAP007,Product Development,Core,Engineering,Optimizing
+CAP008,Data Analytics,Enabling,Data Science,Managing

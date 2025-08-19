@@ -1,0 +1,6 @@
+domain,classification,retention_policy,data_owner,compliance
+Customer Data,PII,7 years,Sales Operations,GDPR
+Financial Data,Confidential,10 years,Finance,SOX
+HR Data,PII,7 years,HR,GDPR
+Product Data,Internal,5 years,Engineering,Internal
+Operational Data,Internal,3 years,Operations,Internal

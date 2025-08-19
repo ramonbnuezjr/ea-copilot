@@ -1,0 +1,38 @@
+[
+  {
+    "id": "ADR001",
+    "title": "Kubernetes Adoption",
+    "status": "Accepted",
+    "date": "2024-01-15",
+    "context": "Need for container orchestration",
+    "decision": "Adopt Kubernetes",
+    "consequences": "Increased complexity but better scalability"
+  },
+  {
+    "id": "ADR002",
+    "title": "PostgreSQL as Primary Database",
+    "status": "Accepted",
+    "date": "2024-03-20",
+    "context": "Database standardization",
+    "decision": "Use PostgreSQL",
+    "consequences": "Better performance and reliability"
+  },
+  {
+    "id": "ADR003",
+    "title": "React Frontend Framework",
+    "status": "Accepted",
+    "date": "2024-02-10",
+    "context": "Frontend modernization",
+    "decision": "Adopt React",
+    "consequences": "Better developer experience and performance"
+  },
+  {
+    "id": "ADR004",
+    "title": "Legacy System Retirement",
+    "status": "Pending",
+    "date": "2024-11-01",
+    "context": "Technical debt reduction",
+    "decision": "Plan retirement",
+    "consequences": "Migration effort required"
+  }
+]

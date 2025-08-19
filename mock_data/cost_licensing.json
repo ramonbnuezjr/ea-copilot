@@ -1,0 +1,37 @@
+[
+  {
+    "vendor": "Salesforce",
+    "product": "CRM Platform",
+    "annual_cost": 60000,
+    "renewal_date": "2025-12-31",
+    "status": "Active"
+  },
+  {
+    "vendor": "Oracle",
+    "product": "NetSuite ERP",
+    "annual_cost": 96000,
+    "renewal_date": "2025-06-30",
+    "status": "Active"
+  },
+  {
+    "vendor": "Workday",
+    "product": "HCM Platform",
+    "annual_cost": 36000,
+    "renewal_date": "2025-09-30",
+    "status": "Active"
+  },
+  {
+    "vendor": "Atlassian",
+    "product": "Jira + Confluence",
+    "annual_cost": 18000,
+    "renewal_date": "2025-03-31",
+    "status": "Active"
+  },
+  {
+    "vendor": "Legacy Vendor",
+    "product": "Order System",
+    "annual_cost": 12000,
+    "renewal_date": "2025-02-28",
+    "status": "Deprecated"
+  }
+]

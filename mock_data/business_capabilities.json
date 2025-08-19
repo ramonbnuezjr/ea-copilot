@@ -1,0 +1,58 @@
+[
+  {
+    "id": "CAP001",
+    "name": "Customer Onboarding",
+    "level": "Core",
+    "owner": "Sales Operations",
+    "maturity": "Optimizing"
+  },
+  {
+    "id": "CAP002",
+    "name": "Order Management",
+    "level": "Core",
+    "owner": "Operations",
+    "maturity": "Defined"
+  },
+  {
+    "id": "CAP003",
+    "name": "Financial Reporting",
+    "level": "Core",
+    "owner": "Finance",
+    "maturity": "Optimizing"
+  },
+  {
+    "id": "CAP004",
+    "name": "HR Management",
+    "level": "Supporting",
+    "owner": "HR",
+    "maturity": "Defined"
+  },
+  {
+    "id": "CAP005",
+    "name": "Supply Chain",
+    "level": "Core",
+    "owner": "Operations",
+    "maturity": "Managing"
+  },
+  {
+    "id": "CAP006",
+    "name": "Customer Service",
+    "level": "Core",
+    "owner": "Customer Success",
+    "maturity": "Defined"
+  },
+  {
+    "id": "CAP007",
+    "name": "Product Development",
+    "level": "Core",
+    "owner": "Engineering",
+    "maturity": "Optimizing"
+  },
+  {
+    "id": "CAP008",
+    "name": "Data Analytics",
+    "level": "Enabling",
+    "owner": "Data Science",
+    "maturity": "Managing"
+  }
+]

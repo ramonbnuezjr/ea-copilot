@@ -1,0 +1,42 @@
+[
+  {
+    "id": "INT001",
+    "name": "Salesforce to NetSuite",
+    "type": "Data Sync",
+    "status": "Active",
+    "frequency": "Real-time",
+    "reliability": "99.9%"
+  },
+  {
+    "id": "INT002",
+    "name": "Payment Gateway API",
+    "type": "External API",
+    "status": "Active",
+    "frequency": "On-demand",
+    "reliability": "99.95%"
+  },
+  {
+    "id": "INT003",
+    "name": "Legacy System Bridge",
+    "type": "Data Migration",
+    "status": "Deprecated",
+    "frequency": "Batch",
+    "reliability": "95%"
+  },
+  {
+    "id": "INT004",
+    "name": "HR System Integration",
+    "type": "Data Sync",
+    "status": "Active",
+    "frequency": "Daily",
+    "reliability": "99%"
+  },
+  {
+    "id": "INT005",
+    "name": "Analytics Data Pipeline",
+    "type": "ETL",
+    "status": "Active",
+    "frequency": "Hourly",
+    "reliability": "98%"
+  }
+]
